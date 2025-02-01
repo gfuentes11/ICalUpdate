@@ -21,9 +21,7 @@ from ics.timeline import Timeline  # We can still import Timeline for expansion
 from caldav import DAVClient
 from icalendar import Calendar as ICAL_Calendar, Event as ICAL_Event
 
-###############################################################################
 # 1) CONFIG
-###############################################################################
 config = configparser.ConfigParser(interpolation=None)
 config.read("config.ini")
 
@@ -33,9 +31,7 @@ USERNAME = config["calendar"]["USERNAME"]
 PASSWORD = config["calendar"]["PASSWORD"]
 TARGET_CALENDAR_NAME = config["calendar"]["TARGET_CALENDAR_NAME"]
 
-###############################################################################
-# 2) TIMEZONE
-###############################################################################
+# 2) TIMEZONE fix set to East Cost
 EASTERN = pytz.timezone("America/New_York")
 
 
@@ -47,9 +43,7 @@ def force_to_eastern(dt: datetime.datetime) -> datetime.datetime:
     return EASTERN.localize(dt_naive)
 
 
-###############################################################################
 # 3) CREATE ICAL EVENT
-###############################################################################
 def create_ical_event(summary, start_eastern, end_eastern, uid=None):
     cal = ICAL_Calendar()
     cal.add("prodid", "-//My Recurring Sync//example.com//")
@@ -81,9 +75,9 @@ def create_ical_event(summary, start_eastern, end_eastern, uid=None):
     return cal.to_ical().decode("utf-8")
 
 
-###############################################################################
 # 4) SYNC FUNCTION (MANUAL FILTERING)
-###############################################################################
+
+
 def sync_calendar():
     """
     1) Fetch ICS
@@ -222,9 +216,9 @@ def delete_all_events():
     print("All events deleted.")
 
 
-###############################################################################
 # 6) MAIN
-###############################################################################
+
+
 def main():
     if len(sys.argv) > 1 and sys.argv[1].lower() == "delete":
         print("WARNING: This will delete ALL events in your iCloud calendar!")
