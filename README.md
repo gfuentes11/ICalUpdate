@@ -31,7 +31,7 @@ This project:
 ---
 
 ## File Structure
-
+```
 ICALUPDATE
 ├── .venv/ # (Optional) Python virtual environment
 ├── script/
@@ -40,7 +40,7 @@ ICALUPDATE
 │ └── sampleConfig.ini # Sample config demonstrating required fields
 ├── .gitignore
 └── README.md
-
+```
 
 ---
 
