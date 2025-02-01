@@ -1,6 +1,6 @@
 # iCalUpdate
 
-A Python script that synchronizes recurring calendar events from an Outlook (ICS) feed to iCloud using CalDAV. The script manually filters and expands events to avoid certain attribute errors when using the `ics` library and provides an option to delete all events from the target calendar.
+A Python script that synchronizes calendar events from an Outlook (ICS) feed to iCloud using CalDAV. I was getting frustrated unable to make edits to the events from my phone and sometime a delay in syncing. The script manually filters and expands events to avoid certain attribute errors when using the `ics` library and provides an option to delete all events from the target calendar. The script can also provide as many updates as needed through out the day. It has some room to improve so feel free to imporve. 
 
 ---
 
